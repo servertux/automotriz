@@ -1,0 +1,19 @@
+   <?php
+       $sql = "SELECT max(cod_fra) as cod_fra FROM facturas where cod_act = 'DOC1';";
+       $query = mysql_query($sql, $link) or die ($sql . " " . mysql_error());
+       $registro = mysql_fetch_array($query, MYSQL_ASSOC);
+       $codfra = $registro['cod_fra'] + 1; //incremento correlativo del código
+        
+       $sql = "insert into facturas (cod_fra,cod_act, fecha, id_clientes) values ";
+       $sql .= "(".$codfra.", 'DOC1', '" . date("Y\/n\/j G:i:s") . "', '" . $_SESSION['id_usuario'] . "');";
+       $query = mysql_query($sql, $link) or die ($sql . " " . mysql_error());
+       $_SESSION['codfra'] = $codfra;
+    ?>
+
+
+
+
+    /////ventas_1 ACTUALIZAR EL STOCK
+
+     $sql2="UPDATE articulos set articulos.stock=articulos.stock-'$unidades' where codigo_original='" . $_REQUEST['codigo_producto'] . "'";
+  $query2 = mysql_query($sql2, $link) or die ($sql2 . " " . mysql_error());

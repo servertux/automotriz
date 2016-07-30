@@ -1,0 +1,1 @@
+[31-May-2014 12:21:02 UTC] PHP Warning:  session_start(): The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in /home/aeelvola/public_html/sistema/validarUsuario.php on line 35
